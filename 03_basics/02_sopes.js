@@ -18,3 +18,41 @@ if (true) {
 // console.log(val1);
 // console.log(val2);
 console.log(val3);
+
+// Nested Scope
+function one() {
+  const username = "manthan";
+
+  function two() {
+    const website = "manthan.com";
+    console.log(username);
+  }
+  // console.log(website);
+  two();
+}
+one();
+
+if (true) {
+  const username = "manthan";
+  if (username === "manthan") {
+    const website = "manthan.com";
+    console.log(`Username : ${username} Website : ${website}`);
+  }
+  // console.log(website);
+}
+// console.log(username);
+
+// Hoisting
+
+console.log(addOne(5)); // avaible due to hoisting
+// function declaration
+function addOne(value) {
+  return value + 1;
+}
+
+// console.log(addTwo(5)); // -> Not availble because variable is not hoisted
+// function expression
+const addTwo = function (value) {
+  return value + 2;
+};
+console.log(addTwo(5));
