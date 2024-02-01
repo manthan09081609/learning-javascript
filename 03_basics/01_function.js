@@ -34,3 +34,29 @@ function registerUserMessage(username = "user") {
 }
 console.log(registerUserMessage("Manthan"));
 console.log(registerUserMessage());
+
+// ...prices -> ...  => rest operator -> to pass multiple values to function
+function calculateCartPrice(currency, ...prices) {
+  if (currency === "Rs") {
+    return prices;
+  }
+  return 0;
+}
+console.log(calculateCartPrice("Rs", 200, 300, 400, 500));
+
+// Passing Object to Function
+const user = {
+  username: "manthan",
+  age: 21,
+};
+function handleObject(obj) {
+  console.log(`Username : ${obj.username} Age:${obj.age}`);
+}
+handleObject(user);
+
+// Passing Array to Function
+const myArray = [1, 2, 3, 4, 5];
+function secondValue(arr) {
+  console.log(`Second Value : ${arr[1]}`);
+}
+secondValue(myArray);
