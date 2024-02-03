@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body style="background-color: #212121; color: #ffffff">
+    <ul class="language">
+      <li>Javascript</li>
+    </ul>
+  </body>
+  <script>
+    // Adding
+
+    // Not optimised because innerHTML traversing the whole tree again and again which is a resorse intensive process if the no. of children is high
+    function addLanguage(langName) {
+      const li = document.createElement("li");
+      li.innerHTML = langName;
+
+      document.querySelector(".language").appendChild(li);
+    }
+
+    addLanguage("Python");
+    addLanguage("Typescript");
+
+    function addLanguageOptimised(langName) {
+      const li = document.createElement("li");
+      li.appendChild(document.createTextNode(langName));
+
+      document.querySelector(".language").appendChild(li);
+    }
+
+    addLanguageOptimised("Go Lang");
+
+    // Editing
+    const secondLang = document.querySelector("li:nth-child(2)");
+    const newLang = document.createElement("li");
+    newLang.textContent = "Mojo";
+    secondLang.replaceWith(newLang);
+
+    const firstLang = document.querySelector("li:first-child");
+    firstLang.outerHTML = "<li>Ruby</li>";
+
+    // Deleting
+    const lastLang = document.querySelector("li:last-child");
+    lastLang.remove();
+  </script>
+</html>
