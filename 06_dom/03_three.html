@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM : Create Node</title>
+  </head>
+  <body style="background-color: #212121; color: #fff"></body>
+  <script>
+    const div = document.createElement("div");
+    console.log(div);
+
+    // preference is given to setMethods because direct access of properties and setting them takes two cycle,while setMethods set the value in one cycle
+    div.className = "class1";
+    div.id = Math.round(Math.random() * 10 + 1);
+    div.setAttribute("title", "title1");
+    div.style.backgroundColor = "green";
+    div.style.padding = "20px";
+    // div.innerText = "Hello World";
+    const textNode = document.createTextNode("Hello World");
+    div.appendChild(textNode);
+
+    document.body.appendChild(div);
+  </script>
+</html>
